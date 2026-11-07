@@ -3,69 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plant Disease Detection & Advisory</title>
+    <title>Login | Plant Disease Detection & Advisory</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <h1>Plant Care Advisor</h1>
-        <p>Detect diseases and get treatment recommendations</p>
-    </header>
-
-    <main>
-        <!-- Input Section -->
-        <div class="card" id="input-card">
-            <h2>Upload Plant Image</h2>
-            <form id="diseaseForm">
-                <div class="input-group">
-                    <label for="plantImage">Select Image (Required)</label>
-                    <input type="file" id="plantImage" accept="image/*" required>
-                    <img id="imagePreview" alt="Image preview">
-                </div>
-
-                <div class="input-group">
-                    <label for="plantDescription">Symptoms or Notes (Optional)</label>
-                    <textarea id="plantDescription" placeholder="E.g., Leaves are turning yellow at the edges..."></textarea>
-                </div>
-
-                <button type="submit" id="submitBtn">Analyze Plant</button>
-            </form>
-
-            <div id="loading">
-                <div class="spinner"></div>
-                <p>Analyzing image and fetching advice. Please wait...</p>
+<body class="login-body">
+    <div class="login-container">
+        <!-- Left Side: Branding -->
+        <div class="login-left">
+            <div class="login-left-content">
+                <div class="logo-leaf">🌿</div>
+                <h2>Plant Disease Detection &<br>Advisory System</h2>
+                <p>Protect your crops with deep transfer learning disease detection. Upload foliar photos, identify pathogens in seconds, and receive expert agronomic treatment recommendations.</p>
             </div>
         </div>
 
-        <!-- Results Section -->
-        <div class="card" id="results">
-            <h2>Analysis Results</h2>
+        <!-- Right Side: Login Form -->
+        <div class="login-right">
+            <div class="login-form-container">
+                <h1>Welcome Back!</h1>
+                <p class="subtitle">Log in to continue to your smart farming dashboard.</p>
 
-            <div id="diseaseInfo">
-                <span class="tag">Detected Condition</span>
-                <h3 id="diseaseName">Disease Name Here</h3>
-                <p id="geminiAnalysis">Gemini analysis text will appear here...</p>
+                <button type="button" class="demo-btn" id="demoLoginBtn">
+                    ✨ Instant Demo Login (demo@phytoscan.ai)
+                </button>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" value="challagidadshrikar@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" value="............" required>
+                            <span class="show-password">Show</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="remember"><input type="checkbox" checked> Remember me</label>
+                        <a href="#" class="forgot">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Sign In to Dashboard</button>
+
+                    <p class="error-text" id="errorMsg" style="display: none; color: #d32f2f; text-align: center; margin-top: 15px; font-size: 0.85rem;">
+                        Unable to reach the FastAPI backend server on port 8000. Please ensure the backend is running.
+                    </p>
+                </form>
+
+                <p class="create-account">Don't have an account? <a href="#">Create Account</a></p>
+
+                <p class="footer-text">© 2026 PlantGuard • Precision Plant Disease Detection System</p>
             </div>
-
-            <div class="result-section" id="treatmentSection">
-                <h3>Recommended Medications & Vaccines</h3>
-                <ul id="medicationsList">
-                    <!-- Fetched from Firestore -->
-                </ul>
-            </div>
-
-            <div class="result-section" id="environmentalSection">
-                <h3>Environmental Maintenance</h3>
-                <ul id="environmentList">
-                    <!-- Fetched from Firestore -->
-                </ul>
-            </div>
-
-            <button type="button" id="resetBtn" style="margin-top: 2rem;">Analyze Another Plant</button>
         </div>
-    </main>
+    </div>
 
-    <!-- App Logic -->
-    <script type="module" src="app.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
